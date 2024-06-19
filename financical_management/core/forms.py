@@ -16,11 +16,11 @@ class SignupForm():
 
     }))
 
-    email = forms.CharField(widget=forms.TextInput(attrs={
+    email = forms.CharField(widget=forms.EmailInput(attrs={
          'placeholder':'your email',
         'class':'w-full py-4 px-6 rounded-xl'
     }))
-    password1 = forms.CharField(widget=forms.TextInput(attrs={
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
          'placeholder':'your password',
         'class':'w-full py-4 px-6 rounded-xl'
     }))
@@ -28,3 +28,14 @@ class SignupForm():
          'placeholder':'confirm password',
         'class':'w-full py-4 px-6 rounded-xl'
     }))
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder':'your username',
+        'class':'w-full py-4 px-6 rounded-xl'
+    }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'placeholder':'your password',
+        'class':'w-full py-4 px-6 rounded-xl'
+    }))
+

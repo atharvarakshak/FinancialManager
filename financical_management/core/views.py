@@ -5,4 +5,4 @@ from django.shortcuts import render,redirect
 
 def index(request):
 
-    return render(request,'core/index.html')
+    return render(request,'index.html')

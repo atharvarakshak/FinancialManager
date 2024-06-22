@@ -1,4 +1,5 @@
 {
+    "version": 2,
     "builds": [
     {
         "src": "financical_management/wsgi.py",
@@ -12,9 +13,13 @@
 ],
     "routes": [
         {
+             "src": "/static/(.*)", "dest": "/staticfiles/$1" 
+    
+        },
+        {
             "src": "/(.*)",
             "dest": "financical_management/wsgi.py"
-        },
-        { "src": "/static/(.*)", "dest": "/staticfiles/$1" }
+        }
+       
     ]
 }

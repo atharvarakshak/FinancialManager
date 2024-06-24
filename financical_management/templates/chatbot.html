@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Manager Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        #chatbox {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+            background-color: #fff;
+        }
+        #userInput {
+            width: 300px;
+            padding: 10px;
+            background-color: #f3f4f6; /* Tailwind gray-100 */
+        }
+    </style>
+</head>
+<body class="bg-green-50 flex items-center justify-center min-h-screen">
+    <div class="p-4 bg-white rounded shadow-md">
+        <div id="chatbox" class="mb-4"></div>
+        <input id="userInput" type="text" placeholder="Type your message here..."
+               class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+               onkeydown="if(event.key === 'Enter') sendMessage()">
+    </div>
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById('userInput').value;
+            document.getElementById('userInput').value = '';
+
+            // Display user message
+            const userMessage = document.createElement('p');
+            userMessage.textContent = `User: ${message}`;
+            userMessage.className = 'bg-green-100 p-2 rounded mb-2 text-green-800';
+            document.getElementById('chatbox').appendChild(userMessage);
+
+            // Send message to backend
+            const response = await fetch('/chatbot/webhook/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')  // Django CSRF token
+                },
+                body: JSON.stringify({ queryInput: { text: { text: message, languageCode: 'en' } } })
+            });
+            const data = await response.json();
+
+            // Display bot response
+            const botMessage = document.createElement('p');
+            botMessage.textContent = `Bot: ${data.fulfillmentText}`;
+            botMessage.className = 'bg-green-200 p-2 rounded mb-2 text-green-900';
+            document.getElementById('chatbox').appendChild(botMessage);
+        }
+
+        // Function to get CSRF token
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+</body>
+</html>

@@ -14,18 +14,32 @@
         .animate-fadeIn {
             animation: fadeIn 1s ease-in-out;
         }
+        .chatbot-container {
+            right: -100%; /* Hidden by default */
+            transition: right 0.3s ease-in-out;
+        }
+        .chatbot-container.show {
+            right: 0; /* Slide in */
+        }
+
+        .blur-md {
+            filter: blur(20px);
+        }
+        .transition-transform {
+            transition: transform 0.7s;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
     <!-- Navbar -->
     <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-4 ">
             <div class="flex justify-between">
                 <div class="flex space-x-7">
                     <!-- Logo -->
                     <div>
                         <a href="#" class="flex items-center py-4 px-2">
-                            <span class="font-semibold text-gray-500 text-lg">Financial Manager</span>
+                            <img src="/static/images/Logo.png" alt="Hero Image" class="h-18 w-36 ">
                         </a>
                     </div>
                     <!-- Primary Navbar items -->
@@ -42,7 +56,7 @@
                     <a href="#" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
                 </div>
                 <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
+                <div class="md:hidden flex items-center ">
                     <button class="outline-none mobile-menu-button">
                         <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
                             x-show="!showMenu"
@@ -60,7 +74,7 @@
             </div>
         </div>
         <!-- mobile menu -->
-        <div class="hidden mobile-menu">
+        <div class="hidden mobile-menu relative z-10">
             <ul class="">
                 <li class="active"><a href="index.html" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
                 <li><a href="#services" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Services</a></li>
@@ -71,7 +85,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-white py-20">
+    <section class="bg-white py-10 ">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2">
@@ -80,14 +94,48 @@
                     <a href="#" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-400 transition duration-300">Get Started</a>
                 </div>
                 <div class="lg:w-1/2 mt-12 lg:mt-0 animate-fadeIn">
-                    <img src="/static/images/p1.jpg" alt="Hero Image" class="">
+                    <img src="/static/images/hero.png" alt="Hero Image" class="">
                 </div>
             </div>
         </div>
     </section>
 
+
+
+        <div class="eb-progress-bar-wrapper">
+            <div class="eb-progress-bar html" style="--value: 85; --col: #FF5089">
+              <progress id="html" min="0" max="100" value="85"></progress>
+            </div>
+            <label for="html" class="eb-progress-bar-title">
+              <h2>Html</h2>
+            </label>
+          </div>
+          
+          <!-- Similar structures for CSS, JavaScript, and Python -->
+          <div class="eb-progress-bar-wrapper">
+            <div class="eb-progress-bar html" style="--value: 85; --col: #FF5089">
+              <progress id="html" min="0" max="100" value="85"></progress>
+            </div>
+            <label for="html" class="eb-progress-bar-title">
+              <h2>Satisfaction</h2>
+            </label>
+          </div>
+          
+          <!-- Similar structures for CSS, JavaScript, and Python -->
+          <div class="eb-progress-bar-wrapper">
+            <div class="eb-progress-bar html" style="--value: 85; --col: #FF5089">
+              <progress id="html" min="0" max="100" value="85"></progress>
+            </div>
+            <label for="html" class="eb-progress-bar-title">
+              <h2>Html</h2>
+            </label>
+          </div>
+          
+          <!-- Similar structures for CSS, JavaScript, and Python -->
+
+
     <!-- Features Section -->
-    <section class="bg-gray-100 py-20">
+    <section class="bg-gray-100 py-20 ">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-2xl font-bold text-gray-800">Features</h2>
@@ -116,6 +164,88 @@
         </div>
     </section>
 
+    <section class="bg-gray-100 py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800">Our Statistics</h2>
+                <p class="text-gray-600">We are proud of our achievements and the value we provide to our users.</p>
+            </div>
+            <div class="flex flex-wrap justify-center">
+                <!-- Stat Card 1 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-4xl font-bold text-green-500 mb-4">98%</h3>
+                        <p class="text-gray-600">Accuracy in Financial Tracking</p>
+                    </div>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-4xl font-bold text-green-500 mb-4">95%</h3>
+                        <p class="text-gray-600">User Satisfaction Rate</p>
+                    </div>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-4xl font-bold text-green-500 mb-4">50K+</h3>
+                        <p class="text-gray-600">Active Users Worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800">Budget Recommendations</h2>
+                <p class="text-gray-600">Get personalized budget recommendations to manage your finances better.</p>
+            </div>
+            <div class="flex flex-wrap">
+                <!-- Recommendation Card 1 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-green-50 rounded-lg shadow-lg p-6 transition transform hover:scale-105 duration-300">
+                        <h3 class="text-2xl font-bold text-green-800 mb-4">Monthly Budget</h3>
+                        <p class="text-gray-600">Based on your spending patterns, we recommend a monthly budget of $2000 to help you save more.</p>
+                    </div>
+                </div>
+                <!-- Recommendation Card 2 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-green-50 rounded-lg shadow-lg p-6 transition transform hover:scale-105 duration-300">
+                        <h3 class="text-2xl font-bold text-green-800 mb-4">Weekly Budget</h3>
+                        <p class="text-gray-600">To stay on track, aim to spend no more than $500 each week on discretionary items.</p>
+                    </div>
+                </div>
+                <!-- Recommendation Card 3 -->
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-green-50 rounded-lg shadow-lg p-6 transition transform hover:scale-105 duration-300">
+                        <h3 class="text-2xl font-bold text-green-800 mb-4">Savings Plan</h3>
+                        <p class="text-gray-600">We recommend setting aside 20% of your monthly income into savings for future financial security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <button id="chatbotButton" class="fixed bottom-8 right-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg focus:outline-none
+    hover:border-pink-500 hover:border-8 transition duration-300">
+    Chatbot
+</button>  
+
+   
+
+    <!-- Chatbot Container -->
+    <div id="chatbotContainer" class="chatbot-container fixed top-0 right-0 h-full w-80 bg-white shadow-lg p-4 flex flex-col">
+        <!-- Close Button -->
+        <button id="closeChatbot" class="self-end h-18 w-18 text-gray-600 hover:text-gray-900">
+            &times;
+        </button>
+        <div id="chatbox" class="flex-grow overflow-y-scroll mb-4 border border-gray-300 p-2 bg-white"></div>
+        <input id="userInput" type="text" placeholder="Type your message here..."
+               class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+               onkeydown="if(event.key === 'Enter') sendMessage()">
+    </div>
+
     <!-- Footer -->
     <footer class="bg-white py-6">
         <div class="container mx-auto px-6">
@@ -126,12 +256,59 @@
     </footer>
 
     <script>
-        const btn = document.querySelector("button.mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
+        document.getElementById('chatbotButton').addEventListener('click', function() {
+            document.getElementById('chatbotContainer').classList.add('show');
+            document.getElementById('chatbotButton').classList.add('hidden');
         });
+
+        document.getElementById('closeChatbot').addEventListener('click', function() {
+            document.getElementById('chatbotContainer').classList.remove('show');
+            document.getElementById('chatbotButton').classList.remove('hidden');
+        });
+
+        async function sendMessage() {
+            const message = document.getElementById('userInput').value;
+            document.getElementById('userInput').value = '';
+
+            // Display user message
+            const userMessage = document.createElement('p');
+            userMessage.textContent = `User: ${message}`;
+            userMessage.className = 'bg-green-100 p-2 rounded mb-2 text-green-800';
+            document.getElementById('chatbox').appendChild(userMessage);
+
+            // Send message to backend
+            const response = await fetch('/chatbot/webhook/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')  // Django CSRF token
+                },
+                body: JSON.stringify({ queryInput: { text: { text: message, languageCode: 'en' } } })
+            });
+            const data = await response.json();
+
+            // Display bot response
+            const botMessage = document.createElement('p');
+            botMessage.textContent = `Bot: ${data.fulfillmentText}`;
+            botMessage.className = 'bg-green-200 p-2 rounded mb-2 text-green-900';
+            document.getElementById('chatbox').appendChild(botMessage);
+        }
+
+        // Function to get CSRF token
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
     </script>
 </body>
 </html>

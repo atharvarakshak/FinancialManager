@@ -1,5 +1,5 @@
 ﻿# FinancialManager
-Library Used
-Jquery
-Chatterbot
-Pytorch
+    Library Used
+    Jquery
+    Chatterbot
+    Pytorch

@@ -7,6 +7,7 @@ app_name = 'core'
 
 urlpatterns=[
     path('',views.index,name='index'),
-     path('chatbot', include('chatbot.urls')),
+    #  path('chatbot', include('chatbot.urls')),
+     path('getResponse', views.getResponse,name='getResponse'),
 
 ]

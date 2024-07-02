@@ -356,8 +356,8 @@
             userMessage.className = 'bg-green-100 p-2 rounded mb-2 text-green-800';
             document.getElementById('chatbox').appendChild(userMessage);
 
-            $.get('/getResponse',{userMessage:message}).done()(function(data){
-
+            $.get('/getResponse',{userMessage:message}).done(function(data){
+                var returnedMessage = "<p> "
             })
 
         }

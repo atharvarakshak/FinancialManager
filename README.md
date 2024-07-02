@@ -3,3 +3,5 @@
     Jquery
     Chatterbot
     Pytorch
+    spacy
+    

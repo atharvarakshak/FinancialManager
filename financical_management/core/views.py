@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
+from .forms import SignupForm,LoginForm
+
 
 bot = ChatBot('chatbot',read_only=False,logic_adapters=['chatterbot.logic.BestMatch'])
 
@@ -29,21 +31,21 @@ list_to_train =[
     "What is your monthly expense rate?",
     "I spend 90% of my monthly income",
     "What is your monthly saving rate?",
-    "I save 10% of my monthly income",
-    "What is your monthly investment rate?",
-    "I invest 10% of my monthly income",
-    "What is your monthly expense rate?",
-    "I spend 90% of my monthly income",
-    "How much do you spend on food per month?",
-    "I spend 300 dollars per month on food",
-    "How much do you spend on rent per month?",
-    "I spend 400 dollars per month on rent",
-    "How much do you spend on transportation per month?",
-    "I spend 100 dollars per month on transportation",
-    "How much do you spend on entertainment per month?",
-    "I spend 100 dollars per month on entertainment",
-    "How much do you spend on utilities per month?",
-    "I spend 100 dollars per month on utilities",
+    # "I save 10% of my monthly income",
+    # "What is your monthly investment rate?",
+    # "I invest 10% of my monthly income",
+    # "What is your monthly expense rate?",
+    # "I spend 90% of my monthly income",
+    # "How much do you spend on food per month?",
+    # "I spend 300 dollars per month on food",
+    # "How much do you spend on rent per month?",
+    # "I spend 400 dollars per month on rent",
+    # "How much do you spend on transportation per month?",
+    # "I spend 100 dollars per month on transportation",
+    # "How much do you spend on entertainment per month?",
+    # "I spend 100 dollars per month on entertainment",
+    # "How much do you spend on utilities per month?",
+    # "I spend 100 dollars per month on utilities",
     
 
 ]
@@ -55,6 +57,17 @@ def index(request):
 
     return render(request,'core/index.html')
 
+def signup(request):
+    if request.method=='POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('core:index')
+    else:
+        form = SignupForm()
+    
+    return render(request,'core/signup.html',{'form':form})
+
 
 def getResponse(request):
     userMessage = request.GET.get('userMessage')
@@ -63,3 +76,5 @@ def getResponse(request):
 
 
     return HttpResponse(chatResponse)
+
+

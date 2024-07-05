@@ -9,5 +9,6 @@ urlpatterns=[
     path('',views.index,name='index'),
     #  path('chatbot', include('chatbot.urls')),
      path('getResponse', views.getResponse,name='getResponse'),
+     path('signup',views.signup,name='signup'),
 
 ]

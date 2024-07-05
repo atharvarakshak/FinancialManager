@@ -1,169 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Financial Manager</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <style>
-      /* In case you need to add the keyframes directly */
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      .animate-fadeIn {
-        animation: fadeIn 1s ease-in-out;
-      }
-      .chatbot-container {
-        right: -100%; /* Hidden by default */
-        transition: right 0.3s ease-in-out;
-      }
-      .chatbot-container.show {
-        right: 0; /* Slide in */
-      }
+{% extends 'core/base.html' %}
+{% block content %}
 
-      .blur-md {
-        filter: blur(20px);
-      }
-      .transition-transform {
-        transition: transform 0.7s;
-      }
-      .mobile-menu {
-        display: none;
-      }
-      .mobile-menu-button {
-        display: none;
-      }
-      @media (max-width: 768px) {
-        .mobile-menu-button {
-          display: inline-block;
-        }
-        .mobile-menu {
-          display: block;
-        }
-      }
-    </style>
 
-    <!-- {% load static %} -->
-    <!-- <link rel="stylesheet" href="{% static 'core' %}"> -->
-  </head>
-  <body class="bg-gray-100 text-gray-800">
-    <!-- Navbar -->
-    <nav class="bg-white shadow-lg">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="flex justify-between">
-          <div class="flex space-x-7">
-            <!-- Logo -->
-            <div>
-              <a href="#" class="flex items-center py-4 px-2">
-                <!-- {% load static %} -->
-                <img
-                  src="{% static 'core/logo.png' %}"
-                  alt="logo Image"
-                  class="h-18 w-36"
-                />
-              </a>
-            </div>
-            <!-- Primary Navbar items -->
-            <div class="hidden md:flex items-center space-x-1">
-              <a
-                href="#"
-                class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
-                >Home</a
-              >
-              <a
-                href="#"
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                >Features</a
-              >
-              <a
-                href="#"
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                >Pricing</a
-              >
-              <a
-                href="#"
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
-                >Contact</a
-              >
-            </div>
-          </div>
-          <!-- Secondary Navbar items -->
-          <div class="hidden md:flex items-center space-x-3">
-            <a
-              href="#"
-              class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-gray-200 transition duration-300"
-              >Log In</a
-            >
-            <a
-              href="#"
-              class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300"
-              >Sign Up</a
-            >
-          </div>
-          <!-- Mobile menu button -->
-          <div class="md:hidden flex items-center">
-            <button class="outline-none mobile-menu-button">
-              <svg
-                class="w-6 h-6 text-gray-500 hover:text-green-500"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M4 6h16M4 12h16m-7 6h7"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- mobile menu -->
-      <div class="hidden mobile-menu">
-        <ul class="">
-          <li class="active">
-            <a
-              href="#"
-              class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-              >Features</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-              >Pricing</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
+
 
     <!-- Hero Section -->
     <section class="bg-white py-10">
@@ -220,9 +59,9 @@
         <h2>Html</h2>
       </label>
     </div>
-
+    
     <!-- Similar structures for CSS, JavaScript, and Python -->
-
+    
     <!-- Features Section -->
     <section class="bg-gray-100 py-20">
       <div class="container mx-auto px-6">
@@ -315,9 +154,14 @@
             better.
           </p>
         </div>
-        <div class="flex flex-wrap">
-          <!-- Recommendation Card 1 -->
-          <div class="w-full md:w-1/3 px-4 mb-8">
+        <div class="animate-fadeIn mb-10 w-full flex items-center justify-center ">
+          <p class="text-xl mr-6">Enter your monthly income :  </p>
+           <input type="text underline" class="border-2">
+           <button class="w-18 h-8 bg-green-500 rounded-xl px-6 ml-4 items-center">Get</button>
+          </div>
+          <div class="flex flex-wrap">
+            <!-- Recommendation Card 1 -->
+            <div class="w-full md:w-1/3 px-4 mb-8">
             <div
               class="bg-green-50 rounded-lg shadow-lg p-6 transition transform hover:scale-105 duration-300"
             >
@@ -331,11 +175,11 @@
             </div>
           </div>
           <!-- Recommendation Card 2 -->
-          <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="w-full md:w-1/3 px-4 mb-8 ">
             <div
-              class="bg-green-50 rounded-lg shadow-lg p-6 transition transform hover:scale-105 duration-300"
+            class="bg-green-50 rounded-lg shadow-lg p-6 transition transform hover:scale-105 duration-300"
             >
-              <h3 class="text-2xl font-bold text-green-800 mb-4">
+            <h3 class="text-2xl font-bold text-green-800 mb-4">
                 Weekly Budget
               </h3>
               <p class="text-gray-600">
@@ -364,7 +208,7 @@
     <button
       id="chatbotButton"
       class="fixed bottom-8 right-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg focus:outline-none hover:border-pink-500 hover:border-8 transition duration-300"
-    >
+      >
       Chatbot
     </button>
 
@@ -372,22 +216,22 @@
     <div
       id="chatbotContainer"
       class="chatbot-container fixed top-0 right-0 h-full w-80 bg-white shadow-lg p-4 flex flex-col"
-    >
+      >
       <!-- Close Button -->
       <button
-        id="closeChatbot"
+      id="closeChatbot"
         class="self-end h-18 w-18 text-gray-600 hover:text-gray-900"
-      >
+        >
         &times;
       </button>
-
+      
       <div
-        id="chatbox"
+      id="chatbox"
         class="flex-grow overflow-y-scroll mb-4 border border-gray-300 p-2 bg-white"
       >
-        <span class="">Hi there...</span>
-      </div>
-      <div class="flex w-full">
+      <span class="">Hi there...</span>
+    </div>
+    <div class="flex w-full">
         <input
           id="userInput"
           type="text"
@@ -401,124 +245,5 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-white py-6">
-      <div class="container mx-auto px-6">
-        <div class="text-center text-gray-600">
-          &copy; 2024 Financial Manager. All rights reserved.
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      const btn = document.querySelector("button.mobile-menu-button");
-      // Select the mobile menu
-      const menu = document.querySelector(".mobile-menu");
-
-      // Add event listener to toggle the mobile menu
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-      document
-        .getElementById("chatbotButton")
-        .addEventListener("click", function () {
-          document.getElementById("chatbotContainer").classList.add("show");
-          document.getElementById("chatbotButton").classList.add("hidden");
-        });
-
-      document
-        .getElementById("closeChatbot")
-        .addEventListener("click", function () {
-          document.getElementById("chatbotContainer").classList.remove("show");
-          document.getElementById("chatbotButton").classList.remove("hidden");
-        });
-
-      async function sendMessage() {
-        const message = document.getElementById("userInput").value;
-        document.getElementById("userInput").value = "";
-
-        // Display user message
-        const userMessage = document.createElement("p");
-        userMessage.textContent = `User: ${message}`;
-        userMessage.className = "bg-green-100 p-2 rounded mb-2 text-green-800";
-        document.getElementById("chatbox").appendChild(userMessage);
-
-        // Send message to backend
-        const response = await fetch("/chatbot/webhook/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": getCookie("csrftoken"), // Django CSRF token
-          },
-          body: JSON.stringify({
-            queryInput: { text: { text: message, languageCode: "en" } },
-          }),
-        });
-        const data = await response.json();
-
-        // Display bot response
-        const botMessage = document.createElement("p");
-        botMessage.textContent = `Bot: ${data.fulfillmentText}`;
-        botMessage.className = "bg-green-200 p-2 rounded mb-2 text-green-900";
-        document.getElementById("chatbox").appendChild(botMessage);
-      }
-
-      // Function to get CSRF token
-      function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== "") {
-          const cookies = document.cookie.split(";");
-          for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === name + "=") {
-              cookieValue = decodeURIComponent(
-                cookie.substring(name.length + 1)
-              );
-              break;
-            }
-          }
-        }
-        return cookieValue;
-      }
-
-      async function getUserResponse() {
-        const message = document.getElementById("userInput").value;
-        document.getElementById("userInput").value = "";
-
-        const userMessage = document.createElement("p");
-        userMessage.textContent = `User: ${message}`;
-        userMessage.className = "bg-green-100 p-2 rounded mb-2 text-green-800";
-        document.getElementById("chatbox").appendChild(userMessage);
-
-        try {
-        const response = await fetch(`/getResponse?userMessage=${encodeURIComponent(message)}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')  // Ensure you have the CSRF token if needed
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.text();
-        const botMessage = document.createElement("p");
-        botMessage.textContent = `Bot: ${data}`;
-        botMessage.className = "bg-green-200 p-2 rounded mb-2 text-green-900";
-        document.getElementById("chatbox").appendChild(botMessage);
-    } catch (error) {
-        console.error("Error occurred: ", error);
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent = `Error: ${error.message}`;
-        errorMessage.className = "bg-red-200 p-2 rounded mb-2 text-red-900";
-        document.getElementById("chatbox").appendChild(errorMessage);
-    }
-  }
-      document.getElementById("search").addEventListener("click", function () {
-        getUserResponse();
-      });
-    </script>
-  </body>
-</html>
+    {% endblock %}
+    

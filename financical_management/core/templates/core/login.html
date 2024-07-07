@@ -3,7 +3,7 @@
     {% block title %} Log in {% endblock %}
 
     {% block content %}
-    <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+    <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl border-4 border-gray-400">
              <h1 class="mb-6 text-3xl">Log in</h1>
         
         
@@ -31,7 +31,7 @@
                     {{ form.non_field_errors }}
                 </div>
             {% endif %}
-            <button class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Submit</button>
+            <button class="py-4 px-8 text-lg bg-red-500 hover:bg-red-700 rounded-xl text-white">Submit</button>
         </form>
     </div>
     {% endblock %}

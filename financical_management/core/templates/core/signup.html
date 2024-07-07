@@ -2,21 +2,21 @@
 
 {% block content %}
 
-<div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+<div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl border-4 border-grey-400 ">
     <h1 class="mb-6 text-3xl">Sign up</h1>
 
 
-<form method="post" action=".">
+<form method="post" action="." >
    {% csrf_token %}
     
    
-   <div class="mb-3">
+   <div class="mb-3 ">
        <label  class="inline-block mb-2">Username</label><br>
        {{form.username}}
    </div>
    <div class="mb-3">
        <label  class="inline-block mb-2">Email</label><br>
-       {{form.email}}
+       {{form.email}}   
    </div>
    <div class="mb-3">
        <label  class="inline-block mb-2">Password</label><br>

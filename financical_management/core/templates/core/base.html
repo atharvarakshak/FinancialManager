@@ -12,8 +12,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
-      /* In case you need to add the keyframes directly */
+    
       @keyframes fadeIn {
         0% {
           opacity: 0;
@@ -26,11 +30,11 @@
         animation: fadeIn 1s ease-in-out;
       }
       .chatbot-container {
-        right: -100%; /* Hidden by default */
+        right: -100%; 
         transition: right 0.3s ease-in-out;
       }
       .chatbot-container.show {
-        right: 0; /* Slide in */
+        right: 0; 
       }
 
       .blur-md {
@@ -39,7 +43,8 @@
       .transition-transform {
         transition: transform 0.7s;
       }
-      .mobile-menu {
+       
+      /* .mobile-menu {
         display: none;
       }
       .mobile-menu-button {
@@ -52,7 +57,40 @@
         .mobile-menu {
           display: block;
         }
-      }
+      }  */
+      @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+        .animate-slideDown {
+            animation: slideDown 0.3s ease-in-out forwards;
+        }
+        .animate-slideUp {
+            animation: slideUp 0.3s ease-in-out forwards;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            z-index: 50;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .mobile-menu-button {
+            display: inline-block;
+        }
     </style>
 
     <!-- {% load static %} -->
@@ -92,7 +130,7 @@
               >Pricing</a
             >
             <a
-              href="#"
+              href="contact"
               class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
               >Contact</a
             >
@@ -101,7 +139,7 @@
         <!-- Secondary Navbar items -->
         <div class="hidden md:flex items-center space-x-3">
           <a
-            href="#"
+            href="/login"
             class="py-2 px-3 font-medium text-gray-500 rounded bg-gray-200 hover:bg-gray-400 transition duration-300"
             >Log In</a
           >
@@ -114,19 +152,16 @@
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center">
           <button class="outline-none mobile-menu-button">
-            <svg
-              class="w-6 h-6 text-gray-500 hover:text-green-500"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
+              <svg class="w-6 h-6 text-gray-500 hover:text-green-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
           </button>
-        </div>
+          <button class="outline-none mobile-menu-close hidden">
+              <span class="material-symbols-outlined text-gray-500 hover:text-green-500">
+                  close
+              </span>
+          </button>
+      </div>
       </div>
     </div>
     <!-- mobile menu -->
@@ -162,7 +197,7 @@
         </li>
         <li class="flex ">
             <a
-            href="#"
+            href="/login"
             class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-gray-200 transition duration-300"
             >Log In</a
           >
@@ -183,7 +218,7 @@
   </div>
 
 
-  <footer class="bg-white py-6 absolute bottom-0 w-full ">
+  <footer class="bg-white py-6  w-full shadow-lg ">
     <div class="container mx-auto px-6">
       <div class="text-center text-gray-600">
         &copy; 2024 Financial Manager. All rights reserved.
@@ -192,9 +227,30 @@
   </footer>
 
   <script>
+     const menuButton = document.querySelector("button.mobile-menu-button");
+    const closeButton = document.querySelector("button.mobile-menu-close");
+    const menu = document.querySelector(".mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+        menu.classList.remove("hidden");
+        menu.classList.add("animate-slideDown");
+        menuButton.classList.add("hidden");
+        closeButton.classList.remove("hidden");
+    });
+
+    closeButton.addEventListener("click", () => {
+        menu.classList.remove("animate-slideDown");
+        menu.classList.add("animate-slideUp");
+        setTimeout(() => {
+            menu.classList.add("hidden");
+            menuButton.classList.remove("hidden");
+            closeButton.classList.add("hidden");
+            menu.classList.remove("animate-slideUp");
+        }, 300);
+    });
     const btn = document.querySelector("button.mobile-menu-button");
     // Select the mobile menu
-    const menu = document.querySelector(".mobile-menu");
+    // const menu = document.querySelector(".mobile-menu");
 
     // Add event listener to toggle the mobile menu
     btn.addEventListener("click", () => {
@@ -214,7 +270,7 @@
         document.getElementById("chatbotButton").classList.remove("hidden");
       });
 
-      function scrollToBottom() {
+      function scrollToBottom() { 
   const chatbox = document.getElementById("chatbox");
   chatbox.scrollTop = chatbox.scrollHeight;
 }

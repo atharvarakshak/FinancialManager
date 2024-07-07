@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
-from .forms import SignupForm,LoginForm
+from .forms import SingupForm
 
 
 bot = ChatBot('chatbot',read_only=False,logic_adapters=['chatterbot.logic.BestMatch'])
@@ -57,17 +57,25 @@ def index(request):
 
     return render(request,'core/index.html')
 
+
+def contact(request):
+
+    return render(request,'core/contact.html')
+
 def signup(request):
-    if request.method=='POST':
-        form = SignupForm(request.POST)
+    if request.method == 'POST':
+        form = SingupForm(request.POST)
+
         if form.is_valid():
             form.save()
-            return redirect('core:index')
-    else:
-        form = SignupForm()
-    
-    return render(request,'core/signup.html',{'form':form})
 
+            return redirect('/login')
+    else:
+        form = SingupForm()
+
+    return render(request,'core/signup.html',{
+        'form':form
+        })
 
 def getResponse(request):
     userMessage = request.GET.get('userMessage')

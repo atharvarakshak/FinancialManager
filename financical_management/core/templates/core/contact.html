@@ -1,0 +1,35 @@
+
+{% extends 'core/base.html' %}
+{% block content %}
+<main class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Contact Information</h2>
+    <p class="mb-8 text-center text-gray-600">Get in touch with us using the information below.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Contact Details -->
+        <div>
+            <h3 class="text-2xl font-semibold mb-4">Our Office</h3>
+            <p class="mb-4 text-gray-700">
+                123 Financial Avenue<br>
+                Finance City, FC 12345<br>
+                USA
+            </p>
+            <h3 class="text-2xl font-semibold mb-4">Contact Us</h3>
+            <p class="mb-2 text-gray-700">
+                <strong>Phone:</strong> +1 (555) 123-4567
+            </p>
+            <p class="mb-2 text-gray-700">
+                <strong>Email:</strong> <a href="mailto:info@financialmanager.com" class="text-blue-600">info@financialmanager.com</a>
+            </p>
+            <p class="mb-2 text-gray-700">
+                <strong>Working Hours:</strong> Mon - Fri, 9:00 AM - 5:00 PM
+            </p>
+        </div>
+        <!-- Map or Contact Form Placeholder -->
+        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+            <!-- Placeholder for Map or Form -->
+            <p class="text-gray-500">Map or Contact Form Placeholder</p>
+        </div>
+    </div>
+</main>
+{% endblock %}
